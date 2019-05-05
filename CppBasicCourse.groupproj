@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{627CA67A-A9B3-4FD2-AFA9-9891CBFF5039}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01. Hello World\01_Hello_World.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="02. Input Output\02_input_output.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="03. Data types\03_data_types.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="01_Hello_World">
+        <MSBuild Projects="01. Hello World\01_Hello_World.cbproj"/>
+    </Target>
+    <Target Name="01_Hello_World:Clean">
+        <MSBuild Projects="01. Hello World\01_Hello_World.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="01_Hello_World:Make">
+        <MSBuild Projects="01. Hello World\01_Hello_World.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="02_input_output">
+        <MSBuild Projects="02. Input Output\02_input_output.cbproj"/>
+    </Target>
+    <Target Name="02_input_output:Clean">
+        <MSBuild Projects="02. Input Output\02_input_output.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="02_input_output:Make">
+        <MSBuild Projects="02. Input Output\02_input_output.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="03_data_types">
+        <MSBuild Projects="03. Data types\03_data_types.cbproj"/>
+    </Target>
+    <Target Name="03_data_types:Clean">
+        <MSBuild Projects="03. Data types\03_data_types.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="03_data_types:Make">
+        <MSBuild Projects="03. Data types\03_data_types.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="01_Hello_World;02_input_output;03_data_types"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="01_Hello_World:Clean;02_input_output:Clean;03_data_types:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="01_Hello_World:Make;02_input_output:Make;03_data_types:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
