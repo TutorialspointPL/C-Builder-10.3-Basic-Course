@@ -6,7 +6,10 @@
         <Projects Include="01. Hello World\01_hello_world.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="02. mile na kilometry\02_mile_na_kilometry.cbproj">
+        <Projects Include="02. IO Stream\02_iostream.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="03. IO Stream BMI\03_iostream_bmi.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,23 +29,32 @@
     <Target Name="01_hello_world:Make">
         <MSBuild Projects="01. Hello World\01_hello_world.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="02_mile_na_kilometry">
-        <MSBuild Projects="02. mile na kilometry\02_mile_na_kilometry.cbproj"/>
+    <Target Name="02_iostream">
+        <MSBuild Projects="02. IO Stream\02_iostream.cbproj"/>
     </Target>
-    <Target Name="02_mile_na_kilometry:Clean">
-        <MSBuild Projects="02. mile na kilometry\02_mile_na_kilometry.cbproj" Targets="Clean"/>
+    <Target Name="02_iostream:Clean">
+        <MSBuild Projects="02. IO Stream\02_iostream.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="02_mile_na_kilometry:Make">
-        <MSBuild Projects="02. mile na kilometry\02_mile_na_kilometry.cbproj" Targets="Make"/>
+    <Target Name="02_iostream:Make">
+        <MSBuild Projects="02. IO Stream\02_iostream.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="03_iostream_bmi">
+        <MSBuild Projects="03. IO Stream BMI\03_iostream_bmi.cbproj"/>
+    </Target>
+    <Target Name="03_iostream_bmi:Clean">
+        <MSBuild Projects="03. IO Stream BMI\03_iostream_bmi.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="03_iostream_bmi:Make">
+        <MSBuild Projects="03. IO Stream BMI\03_iostream_bmi.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="01_hello_world;02_mile_na_kilometry"/>
+        <CallTarget Targets="01_hello_world;02_iostream;03_iostream_bmi"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="01_hello_world:Clean;02_mile_na_kilometry:Clean"/>
+        <CallTarget Targets="01_hello_world:Clean;02_iostream:Clean;03_iostream_bmi:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="01_hello_world:Make;02_mile_na_kilometry:Make"/>
+        <CallTarget Targets="01_hello_world:Make;02_iostream:Make;03_iostream_bmi:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
